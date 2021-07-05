@@ -2,7 +2,7 @@
     display: grid;
     place-items: center;
     height: 100vh;
-    background-image: url("C:\Users\Carola\Desktop\wildora-main\wildora-main\src\img\guitar-1245856.jpg");
+    background-image: url("img/guitar-1245856.jpg");
   }
   
 .login > Button,
