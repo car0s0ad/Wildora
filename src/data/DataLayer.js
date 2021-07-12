@@ -9,5 +9,5 @@ export const DataLayer = ({ reducer, initialState, children }) => (
     </StateContext.Provider>
 );
 
-// COMPONENTS USABLE HOOK
+
 export const useDataLayerValue = () => useContext(StateContext);

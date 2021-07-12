@@ -1,16 +1,16 @@
 
-import React, { useEffect, useState } from "react";
-import Login from "./Login";
+import React, { useEffect } from "react";
+import Login from "./components/Login";
 import "./App.css";
-import { getTokenFromUrl } from "./spotify";
+import { getTokenFromUrl } from "./components/spotify";
 import SpotifyWebApi from "spotify-web-api-js";
-import Player from "./Player";
-import { useDataLayerValue } from "./DataLayer";
+import Player from "./components/Player";
+import { useDataLayerValue } from "./data/DataLayer";
 
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [{ user, token }, dispatch] = useDataLayerValue();
+  const [{  token }, dispatch] = useDataLayerValue();
 
   useEffect(() => {
     const hash = getTokenFromUrl();
@@ -42,7 +42,7 @@ function App() {
         });
       });
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">
