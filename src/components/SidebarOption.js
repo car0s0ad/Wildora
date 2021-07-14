@@ -3,7 +3,7 @@ import "../styles/SidebarOption.css";
 import {useDataLayerValue} from '../data/DataLayer';
 
 function SidebarOption({spotify, title, id, Icon}) {
-    const [{}, dispatch] = useDataLayerValue();
+    const [ {},dispatch ] = useDataLayerValue();
 
     const changePlaylist = (id, e) => {
         dispatch({

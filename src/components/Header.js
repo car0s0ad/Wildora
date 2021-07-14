@@ -14,7 +14,9 @@ function Header({ spotify }) {
                 <SearchIcon />
                 <input
                     placeholder='Search for Artists, Songs or Podcasts'
-                    type="text"/>
+                    type="text"
+                    
+                    /> 
             </div>
             <div className="header__right">
                 <Avatar src={user?.images[0]?.url } alt={user?.display_name} />

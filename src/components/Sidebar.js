@@ -19,7 +19,7 @@ function Sidebar({spotify}) {
 
       <SidebarOption title="Home" Icon={HomeIcon} />
       <SidebarOption title="Search" Icon={SearchIcon} />
-      <SidebarOption title="Your Library" Icon={LibraryMusic} />
+      <SidebarOption title="Your Library" Icon={LibraryMusic}/>
       <br />
       <strong className="sidebar__title">PLAYLISTS</strong>
       <hr />

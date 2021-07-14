@@ -8,6 +8,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import SongRow from "./SongRow";
 import {useSoundLayerValue} from "../data/SoundLayer";
+import Footer from "./Footer"
 
 function Body({spotify}) {
     const [{current_playlist, tracks, track}] = useDataLayerValue();
@@ -47,12 +48,10 @@ function Body({spotify}) {
 
             <div className="body__songs">
                 <div className="body__icons">
-                    {playing ? <PauseCircleFilledIcon onClick={track ? stopPlaying : null}
-                                                      className='body__shuffle'/> :
-                        <PlayCircleFilledIcon onClick={track ? startPlaying : null} fontSize='large'
-                                              className='body__shuffle'/>}
-                    <FavoriteIcon fontSize='large'/>
-                    <MoreHorizIcon/>
+                    {playing ? <PauseCircleFilledIcon onClick={track ? stopPlaying : null} className='body__shuffle'/> :
+                               <PlayCircleFilledIcon onClick={track ? startPlaying : null} fontSize='large' className='body__shuffle'/>}
+                               <FavoriteIcon fontSize='large'/> 
+                               <MoreHorizIcon/>
                 </div>
                 {tracks?.items.map(track => {
                     return <SongRow track={track.track} key={track.track.id}/>
