@@ -53,15 +53,36 @@ const classes = useStyles()
       <h1>
         WILDORA
       </h1>
-      
+      <br></br>
+      <br></br>
+      <h3> A simple Spotify clone made with React and C#</h3>
+      <br></br>
+      <br></br>
+      <div>
+        <div classname="circle" id="circle">
+          <a href="https://github.com/car0s0ad/wildora" target="_blank">
+            <img alt="github" src="https://img.icons8.com/nolan/50/github.png" />
+          </a></div><a href="https://github.com/car0s0ad/wildora">
+        </a><a href="https://github.com/car0s0ad/wildora">
+        </a>
+      </div>
+      <div id="wrapper">
+      <section>
+      <div class="btn-container">
+        <br>
+        </br>
       <Button 
-      href={loginUrl} 
-      variant="contained" 
-      color="primary"
-      className={classes.button}
-      >
-      Login with Spotify
+        href={loginUrl} 
+        className={classes.button}
+        value="button-login"
+        id="button-login"
+        >
+        Login with Spotify
       </Button>
+      <div class="ease"></div>
+      </div>
+      </section>
+    </div>
     </div>
   );
 }
