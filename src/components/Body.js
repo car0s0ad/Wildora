@@ -9,6 +9,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import SongRow from "./SongRow";
 import {useSoundLayerValue} from "../data/SoundLayer";
 import Footer from "./Footer"
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 
 function Body({spotify}) {
     const [{current_playlist, tracks, track}] = useDataLayerValue();
@@ -33,6 +34,9 @@ function Body({spotify}) {
     };
 
     return (
+        <Router>
+            <Switch>
+            <Route path="/Home">
         <div className="body">
             <Header spotify={spotify}/>
             <div className="body__info">
@@ -58,6 +62,9 @@ function Body({spotify}) {
                 })}
             </div>
         </div>
+        </Route>
+        </Switch>
+        </Router>
     )
 }
 
