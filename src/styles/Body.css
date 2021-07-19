@@ -3,7 +3,8 @@
   flex: 0.8;
   color: white;
   padding: 30px;
-  background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
+  background: rgb(0,0,0);
+background: linear-gradient(0deg, rgba(0,0,0,1) 17%, rgba(75,70,70,1) 100%);
   overflow-y: overlay;
 }
 .body::-webkit-scrollbar {

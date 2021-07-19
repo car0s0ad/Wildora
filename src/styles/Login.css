@@ -11,7 +11,8 @@
   letter-spacing: 25px;
   font-size: 150px;
   align-content: center;
-
+  display: block;
+  padding: 23px;
 }
 
 .login >h3 {
