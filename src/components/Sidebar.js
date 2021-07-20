@@ -3,9 +3,8 @@ import "../styles/Sidebar.css";
 import SidebarOption from "./SidebarOption";
 import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
-import { LibraryMusic } from "@material-ui/icons";
 import { useDataLayerValue } from "../data/DataLayer";
-import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Link} from "react-router-dom";
 
 
 function Sidebar({spotify}) {
@@ -23,17 +22,7 @@ function Sidebar({spotify}) {
       <nav>
       <Link to="/Home"><SidebarOption title="Home" Icon={HomeIcon} /></Link>
       <Link to="/Search"><SidebarOption title="Search" Icon={SearchIcon} /></Link>
-      <Link to="/Library"><SidebarOption title="Your Library" Icon={LibraryMusic}/></Link>
-        </nav>
-
-      <Switch>
-        <Route path="/Search">
-          <h1>Hola Search</h1>
-        </Route>
-        <Route path="/Library">
-          <h1>Hola Library</h1>
-        </Route>
-      </Switch>
+      </nav>
 
       <br />
       <strong className="sidebar__title">PLAYLISTS</strong>

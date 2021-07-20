@@ -15,7 +15,6 @@ function Header({ spotify }) {
                 <input
                     placeholder='Search for Artists, Songs or Podcasts'
                     type="text"
-                    
                     /> 
             </div>
             <div className="header__right">

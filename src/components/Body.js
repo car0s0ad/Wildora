@@ -8,10 +8,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import SongRow from "./SongRow";
 import {useSoundLayerValue} from "../data/SoundLayer";
-import Footer from "./Footer"
-import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 
-function Body({spotify}) {
+
+function Body ({spotify}) {
     const [{current_playlist, tracks, track}] = useDataLayerValue();
     const [{playing, volume}, soundDispatch] = useSoundLayerValue();
 
@@ -34,11 +33,8 @@ function Body({spotify}) {
     };
 
     return (
-        <Router>
-            <Switch>
-            <Route path="/Home">
         <div className="body">
-            <Header spotify={spotify}/>
+            
             <div className="body__info">
                 <img
                     src={current_playlist ? current_playlist?.images[0].url : 'https://cdn.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_250/https://www.hypebot.com/wp-content/uploads/2020/07/discover-weekly-250x250.png'}
@@ -62,9 +58,6 @@ function Body({spotify}) {
                 })}
             </div>
         </div>
-        </Route>
-        </Switch>
-        </Router>
     )
 }
 
