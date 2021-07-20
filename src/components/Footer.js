@@ -111,7 +111,7 @@ function Footer() {
     return (
     <div className="footer">
       <div className='footer__left'>
-        <img className='footer__albumLogo' src={track ? track.album.images[0].url : 'https://img2.freepng.es/20180331/qsw/kisspng-sadness-smiley-emoji-emoticon-face-sad-5abf57feacac43.2877818515224893427073.jpg'} alt=""/>
+        <img className='footer__albumLogo' src={track ? track.album.images[0].url : 'https://www.colorhexa.com/282828.png'} alt=""/>
           <div className='footer__songInfo'>
             <h4>{track ? track.name : 'No song selected'}</h4>
             <p>{track ? track.artists.map((artist) => artist.name).join(", ") : null}</p>
