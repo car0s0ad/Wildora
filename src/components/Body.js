@@ -34,7 +34,6 @@ function Body ({spotify}) {
 
     return (
         <div className="body">
-            
             <div className="body__info">
                 <img
                     src={current_playlist ? current_playlist?.images[0].url : 'https://cdn.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_250/https://www.hypebot.com/wp-content/uploads/2020/07/discover-weekly-250x250.png'}
