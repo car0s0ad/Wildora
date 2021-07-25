@@ -10,6 +10,7 @@ import { useDataLayerValue } from "../data/DataLayer";
 import "../styles/Player.css";
 import Body from "./Body";
 import Footer from "./Footer";
+import ApiManager from "../LocalApi/ApiManager"
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom"
 
 
@@ -31,6 +32,7 @@ function Player({ spotify }) {
       <Link to="/Inicio"><SidebarOption title="Inicio" Icon={HomeIcon} /></Link>
       <Link to="/Buscar"><SidebarOption title="Buscar" Icon={SearchIcon} /></Link>
       <Link to="/Listas"><SidebarOption title="Listas" Icon={AudiotrackIcon}/></Link>
+      <Link to="/UsarApi"><SidebarOption title="Consumir api" Icon={AudiotrackIcon}/></Link>
       </nav>
       <br />
       <strong className="sidebar__title">PLAYLISTS</strong>
@@ -55,6 +57,10 @@ function Player({ spotify }) {
 
       <Route path="/Listas">
         <Body />
+      </Route>
+        <ApiManager/>
+      <Route path="/UsarApi">
+        
       </Route>
     </Switch>
 
