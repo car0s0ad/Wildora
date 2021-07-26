@@ -4,7 +4,7 @@ import axios from "axios"
 
 function ShowSongs () {
     const [cancion, setCancion] = useState("")
-    const urlBase = "http://localhost:8080/api/canciones"
+    const urlBase = "http://localhost:63850/api/canciones"
 
     const traerListaCanciones = () => {
         //GET Lista de canciones

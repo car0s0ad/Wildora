@@ -5,9 +5,9 @@ import axios from "axios";
 const cancion = {titulo: "Hola mundillo", autor:"Yo", genero:"js", lanzamiento:2000,}
 
 const ApiManager = () => {
-    const [opcion, setOpcion] = useState("")
+    const [opcion, setOpcion] = useState(0)
 
-    const clickGuardar = ()=>{
+    const clickGuardar = () => {
         setOpcion(1)
     }
 
@@ -23,10 +23,11 @@ const ApiManager = () => {
         setOpcion(4)
     }
 
-
+    
+    
     switch (opcion) {
         case 1: //create
-        const urlBase = "http://localhost:8080/api/canciones"
+        const urlBase = "http://localhost:63850/api/canciones/"
             //POST cancion en Lista de canciones
             axios.post({
                 method: 'post',
@@ -41,14 +42,47 @@ const ApiManager = () => {
             
             break;
         case 2: //get all
+    
+        axios.get(urlBase)
+        .then( res => {
+            console.log("datos traidos: ", res.data)
+        }).catch( e => {
+            console.log("Error al traer lista de canciones ", e)
+        })
+        
             break
 
         case 3: //put
+        const id = 2
+        const url = urlBase + id 
+    
+            //PUT cancion en Lista de canciones
+            axios.post({
+                method: 'put',
+                url: url,
+                data: {
+                    titulo: cancion.titulo,
+                    autor: cancion.autor,
+                    lanzamiento: cancion.lanzamiento,
+                    genero: cancion.genero
+                }
+            })
             break
         
         case 4: //delete
+        const _id = 3
+        const urlD = urlBase + _id
+        axios.delete({
+            method: 'delete',
+            url: urlD,
+            data: {
+                id: _id
+            }
+        })
             break
+
         default:
+            console.log("opcion incorrecta")
             break;
     }
 

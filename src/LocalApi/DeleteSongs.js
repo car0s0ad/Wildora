@@ -3,9 +3,7 @@ import axios from "axios"
 
 //Recibe un objeto de tipo Cancion y el id para borrar
 function DeleteSongs (id) {
-    const urlBase = "http://localhost:8080/api/canciones/"
-
-
+    const urlBase = "http://localhost:63850/api/canciones"
     const borrarCancion = () => {
         //Delete cancion
         axios.delete({

@@ -5,7 +5,7 @@ import axios from "axios"
 //Recibe un objeto de tipo Cancion con los atributos de la cancion
 function SaveSongs (props) {
     const [cancion, setCancion] = useState("")
-    const urlBase = "http://localhost:8080/api/canciones"
+    const urlBase = "http://localhost:63850/api/canciones"
 
     const guardarCanciones = () => {
         //POST cancion en Lista de canciones
