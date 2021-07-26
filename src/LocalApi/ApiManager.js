@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 
-const cancion = {titulo: "Hola mundillo", autor:"Yo", genero:"js", lanzamiento:2000,}
+const cancion = {titulo: "Hola mundillo", autor:"Yo", genero:"js", lanzamiento:2000, urlLetra="letritas"}
 
 const ApiManager = () => {
     const [opcion, setOpcion] = useState(0)
@@ -36,7 +36,8 @@ const ApiManager = () => {
                     titulo: cancion.titulo,
                     autor: cancion.autor,
                     lanzamiento: cancion.lanzamiento,
-                    genero: cancion.genero
+                    genero: cancion.genero,
+                    urlLetra: cancion.urlLetra
                 }
             })
             
