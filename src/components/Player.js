@@ -12,14 +12,12 @@ import "../styles/Player.css";
 import Body from "./Body";
 import Footer from "./Footer";
 import Search from "./Search";
-import ApiManager from "../LocalApi/ApiManager"
+//import ApiManager from "../LocalApi/ApiManager"
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom"
 
-const Player = ( spotify , props) => {
+const Player = ( spotify) => {
   const [{ playlists }] = useDataLayerValue();  //from sidebar.js
-  const [token, setToken] = useState("")
 
-  console.log("props player ",props)
 
   return (
     <Router>
@@ -57,7 +55,7 @@ const Player = ( spotify , props) => {
 
       <Route path="/Buscar">
         <h2>Aca es para buscar jiji</h2>
-        <Search ingresoToken={token}/>
+        <Search />
       </Route>
 
       <Route path="/Listas">

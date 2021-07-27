@@ -1,17 +1,14 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 
-const Search = (props) => {
-    //const query = props;
-    const [token, setToken] = useState("") 
-    //console.log(props);
-    const [autorizacion, setAutorizacion] = useState("")
-    setToken(props.ingresoToken)
-    setAutorizacion("Bearer " + props.ingresoToken)
+
+const Search = () => {
+    const guardarToken = localStorage.getItem("token")
+    const autorizacion = "Bearer " + guardarToken
    
-    debugger
+ 
     useEffect(() => {
-        debugger
+
         console.log("La autorizacion es esta: ", autorizacion)
         const URL = 'https://api.spotify.com/v1/search?q=tania%20bowra&type=artist';
         axios({
