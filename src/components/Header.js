@@ -3,6 +3,8 @@ import '../styles/Header.css'
 import SearchIcon from '@material-ui/icons/Search';
 import {Avatar} from "@material-ui/core";
 import {useDataLayerValue} from "../data/DataLayer";
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import grey from "@material-ui/core/colors/grey";
 
 function Header({ spotify }) {
     const [{user}] = useDataLayerValue();
@@ -20,6 +22,7 @@ function Header({ spotify }) {
             <div className="header__right">
                 <Avatar src={user?.images[0]?.url } alt={user?.display_name} />
                 <h4>{ user?.display_name }</h4>
+                <ArrowDropDownIcon style={{ color: "grey" }}> </ArrowDropDownIcon>
             </div>
         </div>
     )
