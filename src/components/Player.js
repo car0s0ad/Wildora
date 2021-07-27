@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 
 import "../styles/Sidebar.css";
 import SidebarOption from "./SidebarOption";
@@ -11,13 +10,11 @@ import { useDataLayerValue } from "../data/DataLayer";
 import "../styles/Player.css";
 import Body from "./Body";
 import Footer from "./Footer";
-import Search from "./Search";
-import ApiManagerExpress from "../LocalApi/ApiManagerExpress"
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom"
 
-const Player = ( spotify) => {
-  const [{ playlists }] = useDataLayerValue();  //from sidebar.js
 
+function Player({ spotify }) {
+  const [{ playlists }] = useDataLayerValue();  //from sidebar.js
 
   return (
     <Router>
@@ -34,7 +31,6 @@ const Player = ( spotify) => {
       <Link to="/Inicio"><SidebarOption title="Inicio" Icon={HomeIcon} /></Link>
       <Link to="/Buscar"><SidebarOption title="Buscar" Icon={SearchIcon} /></Link>
       <Link to="/Listas"><SidebarOption title="Listas" Icon={AudiotrackIcon}/></Link>
-      <Link to="/UsarApi"><SidebarOption title="Consumir api" Icon={AudiotrackIcon}/></Link>
       </nav>
       <br />
       <strong className="sidebar__title">PLAYLISTS</strong>
@@ -55,15 +51,10 @@ const Player = ( spotify) => {
 
       <Route path="/Buscar">
         <h2>Aca es para buscar jiji</h2>
-        <Search />
       </Route>
 
       <Route path="/Listas">
         <Body />
-      </Route>
-        
-      <Route path="/UsarApi">
-        <ApiManagerExpress/> 
       </Route>
     </Switch>
 

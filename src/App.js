@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Login from "./components/Login";
 import "./App.css";
 import { getTokenFromUrl } from "./components/spotify";
@@ -17,15 +17,12 @@ function App() {
     const hash = getTokenFromUrl();
     window.location.hash = "";
     const _token = hash.access_token;
-    localStorage.setItem("token", _token)
-    //console.log("local token en app ",_token)
-
     if (_token) {
       dispatch({
         type: "SET_TOKEN",
         token: _token,
       });
-      //console.log("[token]", _token);
+      console.log("[token]", token);
       spotify.setAccessToken(_token);
       spotify.getMe().then((user) => {
         dispatch({
