@@ -12,7 +12,7 @@ import "../styles/Player.css";
 import Body from "./Body";
 import Footer from "./Footer";
 import Search from "./Search";
-//import ApiManager from "../LocalApi/ApiManager"
+import ApiManagerExpress from "../LocalApi/ApiManagerExpress"
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom"
 
 const Player = ( spotify) => {
@@ -61,9 +61,9 @@ const Player = ( spotify) => {
       <Route path="/Listas">
         <Body />
       </Route>
-        {/* <ApiManager/> */}
-      <Route path="/UsarApi">
         
+      <Route path="/UsarApi">
+        <ApiManagerExpress/> 
       </Route>
     </Switch>
 
