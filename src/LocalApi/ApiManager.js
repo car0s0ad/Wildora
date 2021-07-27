@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 
-const cancion = {titulo: "Hola mundillo", autor:"Yo", genero:"js", lanzamiento:2000, urlLetra="letritas"}
+const cancion = {titulo: "Hola mundillo", autor:"Yo", genero:"js", lanzamiento:2000, urlLetra:"letritas"}
 
 const ApiManager = () => {
     const [opcion, setOpcion] = useState(0)
@@ -23,11 +23,11 @@ const ApiManager = () => {
         setOpcion(4)
     }
 
-    
+    const [urlBase, setUrlBase] = useState("")
+    setUrlBase("http://localhost:63850/api/canciones/")
     
     switch (opcion) {
         case 1: //create
-        const urlBase = "http://localhost:63850/api/canciones/"
             //POST cancion en Lista de canciones
             axios.post({
                 method: 'post',

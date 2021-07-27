@@ -1,5 +1,5 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Login from "./components/Login";
 import "./App.css";
 import { getTokenFromUrl } from "./components/spotify";
@@ -7,16 +7,21 @@ import SpotifyWebApi from "spotify-web-api-js";
 import Player from "./components/Player";
 import { useDataLayerValue } from "./data/DataLayer";
 import { BrowserRouter as Router } from "react-router-dom";
+import Search from "./components/Search"
 
 const spotify = new SpotifyWebApi();
 
 function App() {
   const [{  token }, dispatch] = useDataLayerValue();
+  const [localToken, setLocalToken] = useState("")
 
   useEffect(() => {
     const hash = getTokenFromUrl();
     window.location.hash = "";
     const _token = hash.access_token;
+    setLocalToken(_token)
+    console.log("local token en app ",localToken)
+
     if (_token) {
       dispatch({
         type: "SET_TOKEN",
@@ -48,7 +53,7 @@ function App() {
   return (
     <Router>
     <div className="App">
-      {token ? <Player spotify={spotify} /> : <Login />}
+      {token ? <Player spotify={spotify} ingresoToken={localToken} /> : <Login />}
     </div>
     </Router>
   );
