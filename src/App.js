@@ -12,21 +12,18 @@ const spotify = new SpotifyWebApi();
 
 function App() {
   const [{  token }, dispatch] = useDataLayerValue();
-  const [localToken, setLocalToken] = useState("")
 
   useEffect(() => {
     const hash = getTokenFromUrl();
     window.location.hash = "";
     const _token = hash.access_token;
-    setLocalToken(_token)
-    console.log("local token en app ",localToken)
 
     if (_token) {
       dispatch({
         type: "SET_TOKEN",
         token: _token,
       });
-      console.log("[token]", token);
+          console.log("[token]", _token);
       spotify.setAccessToken(_token);
       spotify.getMe().then((user) => {
         dispatch({
@@ -52,7 +49,7 @@ function App() {
   return (
     <Router>
     <div className="App">
-      {token ? <Player spotify={spotify} ingresoToken={localToken} /> : <Login />}
+      {token ? <Player spotify={spotify}/> : <Login />}
     </div>
     </Router>
   );

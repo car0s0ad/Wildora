@@ -13,15 +13,11 @@ import Body from "./Body";
 import Footer from "./Footer";
 import Search from "./Search";
 // import Search from "./Search";
-// import ApiManager from "../LocalApi/ApiManager"
+import ApiManager from "../LocalApi/ApiManager"
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom"
 import Header from "./Header";
 
-// const Player = ( spotify , props) => {
-//   const [{ playlists }] = useDataLayerValue();  //from sidebar.js
-  // const [token, setToken] = useState("")
 
-  // console.log("props player ",props)
 function Player({ spotify }) {
     const [{ playlists }] = useDataLayerValue();  //from sidebar.js
   
@@ -59,16 +55,16 @@ function Player({ spotify }) {
       </Route>
 
       <Route path="/Buscar">
-        {/* <Search ingresoToken={token}/> */}
+        {/* <Search /> */}
       </Route>
 
       <Route path="/Listas">
         <Body />
       </Route>
-        {/* <ApiManager/> */}
-      {/* <Route path="/UsarApi">
         
-      </Route> */}
+      <Route path="/UsarApi">
+        <ApiManager/>
+      </Route>
     </Switch>
 
     </article>
