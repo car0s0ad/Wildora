@@ -7,7 +7,6 @@ import SpotifyWebApi from "spotify-web-api-js";
 import Player from "./components/Player";
 import { useDataLayerValue } from "./data/DataLayer";
 import { BrowserRouter as Router } from "react-router-dom";
-import Search from "./components/Search"
 
 const spotify = new SpotifyWebApi();
 
