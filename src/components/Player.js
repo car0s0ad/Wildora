@@ -31,7 +31,7 @@ function Player({ spotify }) {
     <div className="sidebar">
       <img
         className="sidebar__logo"
-        src="https://music-b26f.kxcdn.com/wp-content/uploads/2017/06/635963274692858859903160895_spotify-logo-horizontal-black.jpg"
+        src="https://www.pngkey.com/png/full/190-1907978_spotify-logo-png-white-spotify-logo-white-transparent.png"
         alt="Spotify logo"
       />
       <nav>
