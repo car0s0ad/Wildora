@@ -116,7 +116,7 @@ function Footer() {
             <h6>{track ? track.name : 'No se ha seleccionado ninguna canción'}</h6>
             <p>{track ? track.artists.map((artist) => artist.name).join(", ") : null}</p>
           </div>
-      </div>
+      </div> 
       <div className='footer__center'>
         <ShuffleIcon onClick={track? setShuffle : null} className={shuffle ? 'footer__green' : 'footer__icon'}/>
         <SkipPreviousIcon className='footer__icon'/>

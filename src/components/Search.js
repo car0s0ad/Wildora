@@ -9,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { withStyles, createTheme, makeStyles, ThemeProvider} from '@material-ui/core/styles';
+import Like from "./Like";
 
 const useStyles = makeStyles((theme) => ({
    root: {
@@ -61,13 +62,6 @@ const StyledTableRow = withStyles((theme) => ({
 
      const classes = useStyles()
      const classesTable = useStylesTable()
-     const redHeart = "❤️";
-     const blackHeart = "🖤";
-     const [favorite, setFavorite] =useState(false);
-     const heart = favorite? redHeart : blackHeart;
-     const clickHeart = (e) => {
-      setFavorite(true)
-    };
   
    const API = () =>{
         const URL = 'https://api.musixmatch.com/ws/1.1/track.search';
@@ -114,9 +108,7 @@ const StyledTableRow = withStyles((theme) => ({
                      {track.map ((tracks)=> (
                         <StyledTableRow>
                         <StyledTableCell component="th" scope="row">
-                        <button onClick={clickHeart}>
-                        <div>{heart}</div>
-                        </button>
+                        <Like />
                         </StyledTableCell>
                         <StyledTableCell align="left">{tracks.track.track_name}</StyledTableCell>
                         <StyledTableCell align="left">{tracks.track.artist_name}</StyledTableCell>
