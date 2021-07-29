@@ -1,11 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../styles/Header.css'
 import SearchIcon from '@material-ui/icons/Search';
-import {Avatar} from "@material-ui/core";
+import {Avatar, Button} from "@material-ui/core";
 import {useDataLayerValue} from "../data/DataLayer";
+import SearchData from "./Search"
 
 function Header({ spotify }) {
     const [{user}] = useDataLayerValue();
+    const [dataread, setDataread] = useState("")
+    const [data, setData] = useState("")
+    SearchData(data)
+
+    const datos = () =>{
+        setData(dataread);
+    }
 
 
     return (
@@ -14,9 +22,10 @@ function Header({ spotify }) {
                 <SearchIcon />
                 <input
                     placeholder='Buscar por tema, artista o podcast'
-                    type="text"
+                    type="text" onChange={(e)=>setDataread(e.target.value)}
                     /> 
             </div>
+            <Button variant="contained" color="default" onClick={()=>datos()}>Buscar</Button>
             <div className="header__right">
                 <Avatar src={user?.images[0]?.url } alt={user?.display_name} />
                 <h4>{ user?.display_name }</h4>

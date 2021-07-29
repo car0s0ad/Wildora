@@ -55,7 +55,8 @@ function Player({ spotify }) {
       </Route>
 
       <Route path="/Buscar">
-        {/* <Search /> */}
+        <Header/>
+        <Search /> 
       </Route>
 
       <Route path="/Listas">

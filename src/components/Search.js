@@ -1,41 +1,145 @@
-// import React, {useEffect, useState} from "react";
-// import axios from "axios";
+import React, {useEffect, useState} from "react";
+ import axios from "axios";
+import { Container } from "@material-ui/core";
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import { withStyles, createTheme, makeStyles, ThemeProvider} from '@material-ui/core/styles';
 
-// const Search = (props) => {
-//     //const query = props;
-//     const [token, setToken] = useState("") 
-//     //console.log(props);
-//     const [autorizacion, setAutorizacion] = useState("")
-//     setToken(props.ingresoToken)
-//     setAutorizacion("Bearer " + props.ingresoToken)
-   
-//     debugger
-//     useEffect(() => {
-//         debugger
-//         console.log("La autorizacion es esta: ", autorizacion)
-//         const URL = 'https://api.spotify.com/v1/search?q=tania%20bowra&type=artist';
-//         axios({
-//         method: 'get',
-//         url: URL,
-//         headers: {
-//             Accept: 'application/json',
-//             //ContentType: 'application/json',
-//             Authorization: autorizacion
-//         }
-//         })
-//         .then(res=>{
-//             console.log(res)
-//         })
-//         .catch(error=>{
-//             console.warn("No quiere funcionar :c ", error)
-//         })
-//     }, [autorizacion])
+const useStyles = makeStyles((theme) => ({
+   root: {
+       '& > *': {
+           margin: theme.spacing(1),
+           minWidth: 200,
+           fontSize: 15,
+       },
+   },
+}))
+
+const useStylesTable = makeStyles({
+   table: {
+     minWidth: 700,
+   },
+ });
+
+ const StyledTableCell = withStyles((theme) => ({
+   head: {
+     backgroundColor: theme.palette.common.black,
+     color: theme.palette.common.white,
+   },
+   body: {
+     fontSize: 14,
+   },
+ }))(TableCell);
+
+const theme = createTheme({
+   palette: {
+       primary: {
+           main: '#f0f4c3',
+       }
+   },
+})
+
+const StyledTableRow = withStyles((theme) => ({
+   root: {
+     '&:nth-of-type(odd)': {
+       backgroundColor: theme.palette.action.hover,
+     },
+   },
+ }))(TableRow);
+
+
+   const Search = (props) => {
+     const query = props;
+     let [track,setTrack]= useState([])
+     console.log("Dato que se obtiene del search: ", query);
+     const key = '9930bcde5cf2999e3f366cc24178032b'
+
+     const classes = useStyles()
+     const classesTable = useStylesTable()
+     const redHeart = "❤️";
+     const blackHeart = "🖤";
+     const [favorite, setFavorite] =useState(false);
+     const heart = favorite? redHeart : blackHeart;
+     const clickHeart = (e) => {
+      setFavorite(true)
+    };
+  
+   const API = () =>{
+        const URL = 'https://api.musixmatch.com/ws/1.1/track.search';
+         axios({
+            method: 'get',
+            url: URL,
+            params: {
+               format:'json',
+               apikey: key,
+               quorum_factor: '1',
+               q_track: query,
+            }
+
+         })
+         .then(res=>{
+             console.log("Estos datos provienen del axios: ",res.data.message.body.track_list)
+             setTrack(res.data.message.body.track_list)
+             console.log("variable tracks:", track)
+         })
+         .catch(error=>{
+             console.warn("No quiere funcionar :c ", error)
+         })
+      }
+
+      useEffect (() => {API()}, [query])
+
+
+         return(
+            <div>
+               <h1>Resultados de la busqueda: </h1>
+               <br></br>
+               <TableContainer component={Paper}>
+                  <Table className={classesTable.table} aria-label="customized table">
+                  <TableHead>
+                     <TableRow>
+                        <StyledTableCell>Favorito</StyledTableCell>
+                        <StyledTableCell align="left">Canción</StyledTableCell>
+                        <StyledTableCell align="left">Artista</StyledTableCell>
+                        <StyledTableCell align="left">Album</StyledTableCell>
+                        <StyledTableCell align="left">Lanzamiento</StyledTableCell>
+                     </TableRow>
+                  </TableHead>
+                  <TableBody>
+                     {track.map ((tracks)=> (
+                        <StyledTableRow>
+                        <StyledTableCell component="th" scope="row">
+                        <button onClick={clickHeart}>
+                        <div>{heart}</div>
+                        </button>
+                        </StyledTableCell>
+                        <StyledTableCell align="left">{tracks.track.track_name}</StyledTableCell>
+                        <StyledTableCell align="left">{tracks.track.artist_name}</StyledTableCell>
+                        <StyledTableCell align="left">{tracks.track.album_name}</StyledTableCell>
+                        <StyledTableCell align="left">{}</StyledTableCell>
+                        </StyledTableRow>
+                     ))}
+                  </TableBody>
+                  </Table>
+               </TableContainer>
+            
+               {/* <Container>
+                  {track.map ((element)=>
+                  <ul><li>Nombre: {element.track.track_name}</li>Artista: {element.track.artist_name} <br></br>Album: {element.track.album_name}
+                  <br></br><br></br></ul>
+                  )}
+               </Container> */}
+            </div>
+    )
+
+     }
     
-//         return(
-//                 <div>
-//                     Holi quiero que ande
-//                 </div>
-//         )
-// }
+         
+ 
 
-// export default Search
+ export default Search
