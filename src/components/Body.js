@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/Body.css'
-import Header from "./Header";
+import Avatar1 from "./Avatar";
 import {useDataLayerValue} from "../data/DataLayer";
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import PauseCircleFilledIcon from "@material-ui/icons/PauseCircleFilled";
@@ -35,7 +35,7 @@ function Body ({spotify}) {
 
     return (
         <div className="body">
-             <Header spotify={spotify} />
+            <Avatar1 />
             <div className="body__info">
                 <img
                     src={current_playlist ? current_playlist?.images[0].url : 'https://cdn.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_250/https://www.hypebot.com/wp-content/uploads/2020/07/discover-weekly-250x250.png'}

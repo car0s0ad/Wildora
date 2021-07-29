@@ -16,6 +16,7 @@ import Search from "./Search";
 import ApiManager from "../LocalApi/ApiManager"
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom"
 import Header from "./Header";
+import Avatar1 from "./Avatar"
 
 
 function Player({ spotify }) {
@@ -34,6 +35,7 @@ function Player({ spotify }) {
         alt="Spotify logo"
       />
       <nav>
+      <Link to="/#" exact path></Link>
       <Link to="/Inicio"><SidebarOption title="Inicio" Icon={HomeIcon} /></Link>
       <Link to="/Buscar"><SidebarOption title="Buscar" Icon={SearchIcon} /></Link>
       <Link to="/Listas"><SidebarOption title="Listas" Icon={AudiotrackIcon}/></Link>
@@ -50,8 +52,12 @@ function Player({ spotify }) {
 <article className="body">
 
     <Switch>
+      <Route path="/#" exact path>
+      <h1>Hola, acá puede ir un bienvenidos pero más lindo C:</h1>
+      </Route>
+
       <Route path="/Inicio">
-      <Header />
+      <Avatar1/>
       </Route>
 
       <Route path="/Buscar">
@@ -64,6 +70,7 @@ function Player({ spotify }) {
       </Route>
         
       <Route path="/UsarApi">
+        <Avatar1/>
         <ApiManager/>
       </Route>
     </Switch>
