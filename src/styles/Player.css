@@ -1,3 +1,52 @@
 .player__body {
     display: flex;
 }
+
+.bienvenidos {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100px;
+    letter-spacing: -1.6px;
+    word-spacing: 6px;
+    color: #BBFFEC;
+    font-weight: 400;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-align: center;
+    }
+
+.parrafo_style {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align:justify;
+    font-size: 30px;
+}
+
+.inicio_list {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.datos_contacto {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "area-1 . area-2 . area-3"
+      ". . . . .";
+  }
+  
+  .area-1 { grid-area: area-1; }
+  
+  .area-2 { grid-area: area-2; }
+  
+  .area-3 { grid-area: area-3; }
+  
+  

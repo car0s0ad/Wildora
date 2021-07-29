@@ -17,6 +17,9 @@ import ApiManager from "../LocalApi/ApiManager"
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom"
 import Header from "./Header";
 import Avatar1 from "./Avatar"
+import MediaCardCaro from "./CardAboutUs_Caro";
+import MediaCardMailen from "./CardAboutUs_Mailen";
+import MediaCardFrann from "./CardAboutUs_Frann";
 
 
 function Player({ spotify }) {
@@ -38,8 +41,8 @@ function Player({ spotify }) {
       <Link to="/#" exact path></Link>
       <Link to="/Inicio"><SidebarOption title="Inicio" Icon={HomeIcon} /></Link>
       <Link to="/Buscar"><SidebarOption title="Buscar" Icon={SearchIcon} /></Link>
-      <Link to="/Listas"><SidebarOption title="Listas" Icon={AudiotrackIcon}/></Link>
-      <Link to="/UsarApi"><SidebarOption title="Consumir API" Icon={AudiotrackIcon}/></Link>
+      <Link to="/Listas"><SidebarOption title="Listas guardadas" Icon={AudiotrackIcon}/></Link>
+      <Link to="/UsarApi"><SidebarOption title="Editar favoritos" Icon={AudiotrackIcon}/></Link>
       <br></br>
       </nav>
       <strong className="sidebar__title">YOUR PLAYLISTS</strong>
@@ -53,11 +56,40 @@ function Player({ spotify }) {
 
     <Switch>
       <Route path="/#" exact path>
-      <h1>Hola, acá puede ir un bienvenidos pero más lindo C:</h1>
+      <h1 className="bienvenidos">Bienvenidos a Wildora</h1>
+      <br></br>
+      <br></br>
+      <p className="parrafo_style">Wildora es un clon de spotify en el navegador 
+        realizado como proyecto final para el 
+        curso de Fullstack Net Core + React.
+      </p>
+      <br></br>
+      <br></br>
+      <h1 className="inicio_list">Seleccione una opcion de la izquierda para comenzar</h1>
+      <ul className="inicio_list">
+        <br></br>
+        <li><strong>Inicio: </strong>Datos de contacto</li>
+        <br></br>
+        <li><strong>Buscar: </strong>Permite buscar por cancion o artista y añadir a favoritos</li>
+        <br></br>
+        <li><strong>Listas guardadas: </strong>Si ya tenia listas en su cuenta de spotify se veran aqui</li>
+        <br></br>
+        <li><strong>Editar favoritos: </strong>Puede crear su propia lista de favoritos nueva, agregar y borrar canciones</li>
+      </ul>
+
       </Route>
 
       <Route path="/Inicio">
       <Avatar1/>
+      <h1 className="datos_contacto">Datos de contacto</h1>
+      <br></br>
+      <div class="container">
+      <div class="area-1"><MediaCardCaro /></div>
+      <div class="area-2"><MediaCardMailen /></div>
+      <div class="area-3"><MediaCardFrann/></div>
+    </div>
+      
+      
       </Route>
 
       <Route path="/Buscar">
