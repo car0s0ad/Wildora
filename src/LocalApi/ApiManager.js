@@ -26,11 +26,13 @@ const ApiManager = () => {
             })
     }
 
+    const [cancionTraida, setCancionTraida] = useState("")
     const clickGet = () => {
-       //get all
-       axios.get(urlBase)
+       //get by id
+       axios.get(urlBase + 1)
        .then( res => {
            console.log("datos traidos: ", res.data)
+           setCancionTraida(res.data)
        }).catch( e => {
            console.log("Error al traer lista de canciones ", e)
        })
@@ -41,14 +43,15 @@ const ApiManager = () => {
         const id = 2
         const url = urlBase + id 
             //PUT cancion en Lista de canciones
-            axios.post({
+            axios.put({
                 method: 'put',
                 url: url,
                 data: {
                     titulo: cancion.titulo,
                     autor: cancion.autor,
                     lanzamiento: cancion.lanzamiento,
-                    genero: cancion.genero
+                    genero: cancion.genero,
+                    urlLetra: cancion.urlLetra
                 }
             })
     }
@@ -78,7 +81,7 @@ const ApiManager = () => {
         <table>
             <tbody>
                 <tr>
-                    <td>&nbsp;</td>
+                    <td>Traigo una cancion: {cancionTraida.titulo}</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
