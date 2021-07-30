@@ -80,7 +80,7 @@ const StyledTableRow = withStyles((theme) => ({
              console.log("Estos datos provienen del axios: ",res.data.message.body.track_list)
              setTrack(res.data.message.body.track_list)
              console.log("variable tracks:", track)
-             setResult(false)
+             
              console.log("re ", result)
          })
          .catch(error=>{
