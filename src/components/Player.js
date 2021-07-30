@@ -32,11 +32,13 @@ function Player({ spotify }) {
       <div className="player__body">
         
     <div className="sidebar">
+    <Link to="/#" exact path>
       <img
         className="sidebar__logo"
         src="https://www.pngkey.com/png/full/190-1907978_spotify-logo-png-white-spotify-logo-white-transparent.png"
         alt="Spotify logo"
       />
+    </Link>
       <nav>
       <Link to="/#" exact path></Link>
       <Link to="/Inicio"><SidebarOption title="Inicio" Icon={HomeIcon} /></Link>
@@ -59,7 +61,7 @@ function Player({ spotify }) {
       <h1 className="bienvenidos">Bienvenidos a Wildora</h1>
       <br></br>
       <br></br>
-      <p className="parrafo_style">Wildora es un clon de spotify en el navegador 
+      <p className="parrafo_style">Wildora es un clon de Spotify en el navegador 
         realizado como proyecto final para el 
         curso de Fullstack Net Core + React.
       </p>
@@ -68,7 +70,8 @@ function Player({ spotify }) {
       <h1 className="inicio_list">Seleccione una opcion de la izquierda para comenzar</h1>
       <ul className="inicio_list">
         <br></br>
-        <li><strong>Inicio: </strong>Datos de contacto</li>
+        <br></br>
+        <li><strong>Inicio: </strong>Creadores del proyecto</li>
         <br></br>
         <li><strong>Buscar: </strong>Permite buscar por cancion o artista y añadir a favoritos</li>
         <br></br>
@@ -81,7 +84,7 @@ function Player({ spotify }) {
 
       <Route path="/Inicio">
       <Avatar1/>
-      <h1 className="datos_contacto">Datos de contacto</h1>
+      <h1 className="datos_contacto">Creadores de este proyecto</h1>
       <br></br>
       <br></br>
       <br></br>
