@@ -15,18 +15,27 @@
     }
 
 .parrafo_style {
+
     font-family: 'Roboto';
+
+    font-family: Arial, Helvetica, sans-serif;
+
     text-align:justify;
     font-size: 30px;
 }
 
 .inicio_list {
+
     font-family: 'Roboto';
+    font-family: Arial, Helvetica, sans-serif;
+
     font-size: 20px;
 }
 
 .datos_contacto {
+
     font-family: 'Roboto';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
 }
 
