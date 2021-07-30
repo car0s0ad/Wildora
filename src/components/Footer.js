@@ -112,10 +112,10 @@ function Footer() {
       <div className='footer__left'>
         <img className='footer__albumLogo' src={track ? track.album.images[0].url : 'https://www.colorhexa.com/282828.png'} alt=""/>
           <div className='footer__songInfo'>
-            <h6>{track ? track.name : ''}</h6>
+            <h6>{track ? track.name : 'No se ha seleccionado ninguna canción'}</h6>
             <p>{track ? track.artists.map((artist) => artist.name).join(", ") : null}</p>
           </div>
-      </div>
+      </div> 
       <div className='footer__center'>
         <ShuffleIcon onClick={track? setShuffle : null} className={shuffle ? 'footer__green' : 'footer__icon'}/>
         <SkipPreviousIcon className='footer__icon'/>

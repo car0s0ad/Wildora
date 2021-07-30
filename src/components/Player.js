@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+
 
 import "../styles/Sidebar.css";
 import SidebarOption from "./SidebarOption";
@@ -86,8 +86,10 @@ function Player({ spotify }) {
       <Avatar1/>
       <h1 className="datos_contacto">Creadores de este proyecto</h1>
       <br></br>
+
       <br></br>
       <br></br>
+
       <div class="container">
       <div class="area-1"><MediaCardCaro /></div>
       <div class="area-2"><MediaCardMailen /></div>
