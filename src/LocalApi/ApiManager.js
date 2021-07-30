@@ -12,12 +12,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 const cancion = {id:1, titulo: "Hola mundillo", autor:"Yo", genero:"js", lanzamiento:2000, urlLetra:"letritas"}
-const cancion2 = {id:2, titulo: "Hola mundillo", autor:"Yo", genero:"js", lanzamiento:2000, urlLetra:"letritas"}
-
-const rows = [
-    cancion,
-    cancion2
-]
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -68,6 +62,7 @@ const ApiManager = () => {
     //setUrlBase("http://localhost:5000/api/canciones")
     const classes = useStyles()
     const classesTable = useStylesTable()
+    const [cancionTraida, setCancionTraida] = useState("")
 
     const clickGuardar = () => {
         //create
@@ -86,7 +81,6 @@ const ApiManager = () => {
             })
     }
 
-    const [cancionTraida, setCancionTraida] = useState("")
     const clickGet = () => {
         const urlBase = "http://localhost:5000/api/canciones/"
        //get by id
@@ -145,7 +139,7 @@ const ApiManager = () => {
 
     return (
         <div>
-            <p className="titulo">Seleccione una opcion para interactuar con la bdd</p>
+            <p className="titulo">Seleccione una opcion para interactuar con la base de datos</p>
 
             <nav className={classes.root}>
                 <ThemeProvider theme={theme}>
@@ -172,11 +166,6 @@ const ApiManager = () => {
       <br></br>
 
       </ThemeProvider>
-
-                {/* <input type="button" value="create" onClick={ ()=> clickGuardar()}/>
-                <input type="button" value="get all" onClick={()=> clickGet()}/>
-                <input type="button" value="put" onClick={()=> clickPut()}/>
-                <input type="button" value="delete" onClick={()=> clickDelete()}/> */}
             </nav>
 
             <TableContainer component={Paper}>
@@ -188,11 +177,12 @@ const ApiManager = () => {
             <StyledTableCell align="right">Genero</StyledTableCell>
             <StyledTableCell align="right">Autor</StyledTableCell>
             <StyledTableCell align="right">Lanzamiento</StyledTableCell>
+            <StyledTableCell align="right">Letra</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+          { cancionTraida ? cancionTraida.map((row) => (
+            <StyledTableRow key={row.titulo}>
               <StyledTableCell component="th" scope="row">
                 {row.id}
               </StyledTableCell>
@@ -200,8 +190,10 @@ const ApiManager = () => {
               <StyledTableCell align="right">{row.genero}</StyledTableCell>
               <StyledTableCell align="right">{row.autor}</StyledTableCell>
               <StyledTableCell align="right">{row.lanzamiento}</StyledTableCell>
+              <StyledTableCell align="right">{row.urlLetra}</StyledTableCell>
             </StyledTableRow>
-          ))}
+          )) : <h1></h1>}
+          
         </TableBody>
       </Table>
     </TableContainer>
