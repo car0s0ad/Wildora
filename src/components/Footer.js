@@ -112,7 +112,7 @@ function Footer() {
       <div className='footer__left'>
         <img className='footer__albumLogo' src={track ? track.album.images[0].url : 'https://www.colorhexa.com/282828.png'} alt=""/>
           <div className='footer__songInfo'>
-            <h6>{track ? track.name : 'No se ha seleccionado ninguna canción'}</h6>
+            <h6>{track ? track.name : ''}</h6>
             <p>{track ? track.artists.map((artist) => artist.name).join(", ") : null}</p>
           </div>
       </div> 
