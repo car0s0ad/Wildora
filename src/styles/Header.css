@@ -2,7 +2,10 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+<<<<<<< HEAD
   font-family: 'Roboto';
+=======
+>>>>>>> d8236f2 (buscador)
 }
 
 .header__left {

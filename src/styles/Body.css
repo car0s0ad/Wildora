@@ -5,7 +5,10 @@
   padding: 30px;
   background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
   overflow-y: overlay;
+<<<<<<< HEAD
   font-family: 'Roboto';
+=======
+>>>>>>> d8236f2 (buscador)
 }
 .body::-webkit-scrollbar {
   display: none;

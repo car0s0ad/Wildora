@@ -1,6 +1,10 @@
 import React, {useEffect, useState} from "react";
  import axios from "axios";
+<<<<<<< HEAD
 import { Container } from "@material-ui/core";
+=======
+import { Button } from "@material-ui/core";
+>>>>>>> d8236f2 (buscador)
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -56,7 +60,11 @@ const StyledTableRow = withStyles((theme) => ({
 
    const Search = (props) => {
      const query = props;
+<<<<<<< HEAD
      let [track,setTrack]= useState([])
+=======
+     const [track,setTrack]= useState("")
+>>>>>>> d8236f2 (buscador)
      console.log("Dato que se obtiene del search: ", query);
      const key = 'b50cef7999ab11d9c4dd4bf23f86ed12'
 
@@ -64,11 +72,32 @@ const StyledTableRow = withStyles((theme) => ({
      const classesTable = useStylesTable()
   
    const API = () =>{
+<<<<<<< HEAD
         const URL = "http://localhost:5000/api/canciones/" + query;
          axios.get(URL)
          .then(res=>{
              console.log("Estos datos provienen del axios: ",res.data)
              setTrack(res.data)
+=======
+        const URL = 'https://api.musixmatch.com/ws/1.1/track.search';
+         axios({
+            method: 'get',
+            url: URL,
+            params: {
+               format:'json',
+               apikey: key,
+               quorum_factor: '1',
+               q_track: query,
+            }
+
+         })
+         .then(res=>{
+             console.log("Estos datos provienen del axios: ",res.data.message.body.track_list)
+             setTrack(res.data.message.body.track_list)
+             console.log("variable tracks:", track)
+             setResult(false)
+             console.log("re ", result)
+>>>>>>> d8236f2 (buscador)
          })
          .catch(error=>{
              console.warn("No quiere funcionar :c ", error)
@@ -76,10 +105,23 @@ const StyledTableRow = withStyles((theme) => ({
       }
 
       useEffect (() => {API()}, [query])
+<<<<<<< HEAD
 
 
          return(
             <div>
+=======
+      
+      const [result,setResult]=useState(false)
+      const resultados = () => {
+         setResult(true)
+         console.log("re2: ", result)
+      }
+
+         return(
+            <div>
+               <Button variant="contained" onClick= {()=>resultados()}>Ver resultados</Button>
+>>>>>>> d8236f2 (buscador)
                <h1>Resultados de la busqueda: </h1>
                <br></br>
                <TableContainer component={Paper}>
@@ -87,6 +129,7 @@ const StyledTableRow = withStyles((theme) => ({
                   <TableHead>
                      <TableRow>
                         <StyledTableCell>Favorito</StyledTableCell>
+<<<<<<< HEAD
                         <StyledTableCell align="left">Canción</StyledTableCell>
                         <StyledTableCell align="left">Artista</StyledTableCell>
                         <StyledTableCell align="left">Genero</StyledTableCell>
@@ -119,6 +162,32 @@ const StyledTableRow = withStyles((theme) => ({
     )
 
      }
+=======
+                        <StyledTableCell align="left">Id</StyledTableCell>
+                        <StyledTableCell align="left">Canción</StyledTableCell>
+                        <StyledTableCell align="left">Artista</StyledTableCell>
+                        <StyledTableCell align="left">Album</StyledTableCell>
+                        
+                     </TableRow>
+                  </TableHead>
+                  <TableBody>
+                     {result? track.map ((tracks)=> (
+                        <StyledTableRow key={tracks.track.track_id}>
+                        <StyledTableCell component="th" scope="row">
+                        <Like />
+                        </StyledTableCell>
+                        <StyledTableCell align="left">{tracks.track.track_id}</StyledTableCell>
+                        <StyledTableCell align="left">{tracks.track.track_name}</StyledTableCell>
+                        <StyledTableCell align="left">{tracks.track.artist_name}</StyledTableCell>
+                        <StyledTableCell align="left">{tracks.track.album_name}</StyledTableCell>
+                        </StyledTableRow>
+                     )) : <h6></h6>} 
+                  </TableBody>
+                  </Table>
+               </TableContainer>
+            </div>
+   )}
+>>>>>>> d8236f2 (buscador)
     
          
  

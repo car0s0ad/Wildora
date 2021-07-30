@@ -1,10 +1,17 @@
 .player__body {
     display: flex;
+<<<<<<< HEAD
     font-family: 'Roboto';
 }
 
 .bienvenidos {
     font-family: 'Roboto';
+=======
+}
+
+.bienvenidos {
+    font-family: Arial, Helvetica, sans-serif;
+>>>>>>> d8236f2 (buscador)
     font-size: 100px;
     letter-spacing: -1.6px;
     word-spacing: 6px;
@@ -18,18 +25,30 @@
     }
 
 .parrafo_style {
+<<<<<<< HEAD
     font-family: 'Roboto';
+=======
+    font-family: Arial, Helvetica, sans-serif;
+>>>>>>> d8236f2 (buscador)
     text-align:justify;
     font-size: 30px;
 }
 
 .inicio_list {
+<<<<<<< HEAD
     font-family: 'Roboto';
+=======
+    font-family: Arial, Helvetica, sans-serif;
+>>>>>>> d8236f2 (buscador)
     font-size: 20px;
 }
 
 .datos_contacto {
+<<<<<<< HEAD
     font-family: 'Roboto';
+=======
+    font-family: Arial, Helvetica, sans-serif;
+>>>>>>> d8236f2 (buscador)
     font-size: 30px;
 }
 
