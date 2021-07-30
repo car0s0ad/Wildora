@@ -7,6 +7,7 @@
   width: 100%;
   background-color: #282828;
   padding: 20px;
+  font-family: 'Roboto';
 }
 .footer__left {
   flex: 0.3;
@@ -43,6 +44,12 @@
 .footer__songInfo > h4 {
   margin-bottom: 5px;
 }
+
+.footer__songInfo > h6 {
+  font-size: 15px;
+}
+
+
 .footer__songInfo > p {
   font-size: 12px;
 }

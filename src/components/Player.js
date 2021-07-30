@@ -83,6 +83,8 @@ function Player({ spotify }) {
       <Avatar1/>
       <h1 className="datos_contacto">Datos de contacto</h1>
       <br></br>
+      <br></br>
+      <br></br>
       <div class="container">
       <div class="area-1"><MediaCardCaro /></div>
       <div class="area-2"><MediaCardMailen /></div>
