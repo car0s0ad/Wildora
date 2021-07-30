@@ -4,6 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import {Avatar, Button} from "@material-ui/core";
 import {useDataLayerValue} from "../data/DataLayer";
 import SearchData from "./Search"
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 function Header({ spotify }) {
     const [{user}] = useDataLayerValue();
@@ -27,8 +28,9 @@ function Header({ spotify }) {
             </div>
             <Button variant="contained" color="default" onClick={()=>datos()}>Buscar</Button>
             <div className="header__right">
-                <Avatar src={user?.images[0]?.url } alt={user?.display_name} />
+                <Avatar className="avatar" src={user?.images[0]?.url } alt={user?.display_name} />
                 <h4>{ user?.display_name }</h4>
+            <ArrowDropDownIcon></ArrowDropDownIcon>
             </div>
         </div>
     )

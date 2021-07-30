@@ -25,7 +25,19 @@
 
 .header__right {
   display: flex;
+  flex: 0;
+  background-color: black;
+  color: white;
+  border-radius: 100px;
+  padding: 5px;
+  display: flex;
   align-items: center;
+  font-size: 13px;
+}
+
+.avatar{
+  height: 10px;
+  width: 10px
 }
 
 .header__right > h4 {

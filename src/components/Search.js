@@ -99,6 +99,8 @@ const StyledTableRow = withStyles((theme) => ({
          return(
             <div>
                <Button variant="contained" onClick= {()=>resultados()}>Ver resultados</Button>
+               <br></br>
+               <br></br>
                <h1>Resultados de la busqueda: </h1>
                <br></br>
                <TableContainer component={Paper}>
