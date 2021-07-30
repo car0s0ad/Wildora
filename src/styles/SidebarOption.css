@@ -5,10 +5,8 @@
   height: 40px;
   cursor: pointer;
   transition: 200ms color ease-in;
-<<<<<<< HEAD
   font-family: 'Roboto';
-=======
->>>>>>> d8236f2 (buscador)
+
 }
 
 .sidebarOption:hover {
