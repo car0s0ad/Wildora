@@ -58,28 +58,16 @@ const StyledTableRow = withStyles((theme) => ({
      const query = props;
      let [track,setTrack]= useState([])
      console.log("Dato que se obtiene del search: ", query);
-     const key = '9930bcde5cf2999e3f366cc24178032b'
 
      const classes = useStyles()
      const classesTable = useStylesTable()
   
    const API = () =>{
-        const URL = 'https://api.musixmatch.com/ws/1.1/track.search';
-         axios({
-            method: 'get',
-            url: URL,
-            params: {
-               format:'json',
-               apikey: key,
-               quorum_factor: '1',
-               q_track: query,
-            }
-
-         })
+        const URL = "http://localhost:5000/api/canciones/" + query;
+         axios.get(URL)
          .then(res=>{
-             console.log("Estos datos provienen del axios: ",res.data.message.body.track_list)
-             setTrack(res.data.message.body.track_list)
-             console.log("variable tracks:", track)
+             console.log("Estos datos provienen del axios: ",res.data)
+             setTrack(res.data)
          })
          .catch(error=>{
              console.warn("No quiere funcionar :c ", error)
@@ -100,7 +88,7 @@ const StyledTableRow = withStyles((theme) => ({
                         <StyledTableCell>Favorito</StyledTableCell>
                         <StyledTableCell align="left">Canción</StyledTableCell>
                         <StyledTableCell align="left">Artista</StyledTableCell>
-                        <StyledTableCell align="left">Album</StyledTableCell>
+                        <StyledTableCell align="left">Genero</StyledTableCell>
                         <StyledTableCell align="left">Lanzamiento</StyledTableCell>
                      </TableRow>
                   </TableHead>
@@ -110,10 +98,10 @@ const StyledTableRow = withStyles((theme) => ({
                         <StyledTableCell component="th" scope="row">
                         <Like />
                         </StyledTableCell>
-                        <StyledTableCell align="left">{tracks.track.track_name}</StyledTableCell>
-                        <StyledTableCell align="left">{tracks.track.artist_name}</StyledTableCell>
-                        <StyledTableCell align="left">{tracks.track.album_name}</StyledTableCell>
-                        <StyledTableCell align="left">{}</StyledTableCell>
+                        <StyledTableCell align="left">{tracks.titulo}</StyledTableCell>
+                        <StyledTableCell align="left">{tracks.autor}</StyledTableCell>
+                        <StyledTableCell align="left">{tracks.genero}</StyledTableCell>
+                        <StyledTableCell align="left">{tracks.lanzamiento}</StyledTableCell>
                         </StyledTableRow>
                      ))}
                   </TableBody>
