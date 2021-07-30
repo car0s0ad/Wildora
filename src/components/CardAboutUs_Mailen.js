@@ -11,8 +11,9 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 400,
     align:'center',
+    width: '300px',
+    height: '450px',
   },
   media: {
     height: "10em",
@@ -28,6 +29,7 @@ export default function MediaCard() {
   return (
     <Card className={classes.root}>
         <CardContent>
+        <br></br>
           <Typography gutterBottom variant="h5" component="h2" align="center">
             Mailen Ojeda
           </Typography>
@@ -37,7 +39,7 @@ export default function MediaCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://i.ibb.co/YQFyj3Y/1592952098665.jpg"
+          image="https://i.ibb.co/H2R2GFw/1592952098665.png"
           title="Perfil Image"
         />
       </CardActionArea>

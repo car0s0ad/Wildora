@@ -11,13 +11,16 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 245,
+    align:'center',
+    width: '300px',
+    height: '450px',
   },
   media: {
     height: "10em",
     paddingTop: '56.25%',
   },
 });
+
 
 export default function MediaCard() {
   const classes = useStyles();
@@ -29,6 +32,7 @@ export default function MediaCard() {
     <Card className={classes.root}>
       <CardActionArea>
       <CardContent>
+        <br></br>
           <Typography gutterBottom variant="h5" component="h2" align="center">
             Carolina Dehle
           </Typography>

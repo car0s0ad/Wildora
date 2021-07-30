@@ -11,7 +11,9 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 245,
+    align:'center',
+    width: '300px',
+    height: '450px',
   },
   media: {
     height: "10em",
@@ -27,6 +29,7 @@ export default function MediaCard() {
   return (
     <Card className={classes.root}>
       <CardContent>
+      <br></br>
           <Typography gutterBottom variant="h5" component="h2" align="center">
             Francisco Polich
           </Typography>
